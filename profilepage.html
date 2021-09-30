@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Profile page
+{% endblock %}
+
+{% block main %}
+    <h1>{{name}}'s Profile Page</h1>
+    <table class="table table-striped" align="left">
+        <tr>
+            <th>Name</th>
+            <td>{{profile.name}}</td>
+        </tr>
+        <tr>
+            <th>College</th>
+            <td>{{profile.college}}</td>
+        </tr>
+        <tr>
+            <th>Class</th>
+            <td>{{profile.class}}</td>
+        </tr>
+        <tr>
+            <th>Major</th>
+            <td>{{profile.major}}</td>
+        </tr>
+    </table>
+
+    <h2>Contact information</h2>
+    <table class="table table-striped" align="left">
+        <tr>
+            <th>Email</th>
+            <td>{{contact.email}}</td>
+        </tr>
+        {% if contact.phone %}
+        <tr>
+            <th>Phone Number</th>
+            <td>{{contact.phone}}</td>
+        </tr>
+        {% endif %}
+    </table>
+    <a href="/edit"><button class="btn btn-primary" type="submit">Edit profile</button></a>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Edit profile
+{% endblock %}
+
+{% block main %}
+    <form action="/edit" method="post">
+        <h2 style="font-family:'verdana'">Edit profile information</h2><br />
+        <!--email-->
+        <div class="form-group">
+            <label for="email">Yale Email</label>
+            <input id="email" autocomplete="off" autofocus class="form-control" name="email" placeholder="Email" type="email">
+        </div>
+        <!-- password-->
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input id="password" class="form-control" autcomplete="off" autofocus name="password" placeholder="Password" type="password">
+        </div>
+        <!--phone-->
+        <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input id="phone" class="form-control" autcomplete="off" autofocus name="phone" placeholder="Phone Number (optional)">
+        </div>
+        <!--college-->
+        <div class="form-group">
+            <label for="college">College</label>
+            <select id="college" class="form-control" name="college">
+                <option disabled selected value="">College</option>
+                {% for college in colleges %}
+                    <option value="{{ college }}">{{ college }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <!--class-->
+        <div class="form-group">
+            <label for="class">Class</label>
+            <select id="class" class="form-control" name="class">
+                <option disabled selected value="">Class</option>
+                {% for year in years %}
+                    <option value="{{ year }}">{{ year }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <!--major-->
+        <div class="form-group">
+            <label for="major">Major</label>
+            <select class="form-control" id="major"  name="major">
+                <option disabled selected value="">Major</option>
+                {% for key, major in majors.items() %}
+                    <option value="{{ key }}">{{key}} - {{ major }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <button class="btn btn-primary" type="submit">Confirm changes</button>
+    </form>
+{% endblock %}

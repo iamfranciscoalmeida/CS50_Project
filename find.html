@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Find matches
+{% endblock %}
+
+{% block main %}
+    <form action="/browse" method="post">
+        <h1>Select the major you want to be matched with!</h1><br />
+        <div class="form-group">
+            <select id="major" class="form-control" name="major" style="text-align:centre;" required>
+                <option disabled selected value="">Major</option>
+                {% for key, major in majors.items() %}
+                    <option value="{{ key }}">{{key}} - {{major}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <button class="btn btn-primary" type="submit">Match</button>
+    </form>
+{% endblock %}
